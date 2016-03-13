@@ -1,0 +1,9 @@
+kibana:
+  image: devopsifyinc/elastic_kibana 
+  container_name: kibana
+  restart: always
+  env_file: /root/properties/logging_kibana.properties
+  net: "host"
+  labels:
+    - "label_app=kibana"
+    - "label_env=${ENV}"

@@ -1,0 +1,8 @@
+redis:
+  image: devopsifyinc/elastic_redis 
+  container_name: redis
+  restart: always
+  net: "host"
+  labels:
+    - "label_app=redis"
+    - "label_env=${ENV}"

@@ -1,0 +1,20 @@
+---
+
+- name: push ssh auth file
+  copy: src=./ dest=/root/
+
+- file: path=/root/.ssh/id_rsa mode=0400
+
+
+- name: install git
+  yum: name=git state=present
+
+- name: update env file
+  lineinfile: dest=/etc/environment insertafter="EOF" line="export env={{ env }}"
+
+- name: update env file
+  lineinfile: dest=/etc/environment insertafter="EOF" line="export app={{ app }}"
+
+- name: start app
+  shell: /root/bin/logging/start_logging_app.sh -a {{ app }}
+

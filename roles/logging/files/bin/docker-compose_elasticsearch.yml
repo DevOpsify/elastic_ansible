@@ -1,0 +1,11 @@
+elasticsearch:
+  image: devopsifyinc/elastic_elasticsearch
+  container_name: elasticsearch
+  volumes:
+    - /root/es_data:/usr/share/elasticsearch/data
+  env_file: /root/properties/logging_elasticsearch.properties
+  restart: always
+  net: "host"
+  labels:
+    - "label_app=elasticsearch"
+    - "label_env=${ENV}"

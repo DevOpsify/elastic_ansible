@@ -1,0 +1,5 @@
+---
+- hosts: logging
+
+  roles:
+    - ../roles/logging

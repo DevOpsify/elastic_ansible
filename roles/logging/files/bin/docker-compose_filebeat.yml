@@ -1,0 +1,11 @@
+filebeat:
+  image: devopsifyinc/elastic_filebeat 
+  container_name: filebeat
+  restart: always
+  env_file: /root/properties/logging_filebeat.properties
+  labels:
+    - "label_app=filebeat"
+    - "label_env=${ENV}"
+  volumes:
+    - /var/lib/docker/containers:/var/lib/docker/containers
+    - /var/log/docker:/var/log/docker

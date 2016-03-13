@@ -1,0 +1,9 @@
+logstash:
+  image: devopsifyinc/elastic_logstash 
+  container_name: logstash
+  restart: always
+  env_file: /root/properties/logging_logstash.properties
+  net: "host"
+  labels:
+    - "label_app=logstash"
+    - "label_env=${ENV}"
